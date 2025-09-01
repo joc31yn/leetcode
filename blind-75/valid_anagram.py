@@ -8,7 +8,7 @@ class Solution:
                 chars[letter] = 1
         return chars
 
-    def isAnagram(self, s: str, t: str) -> bool:
+    def is_anagram(self, s: str, t: str) -> bool:
         """
         Time Complexity: O(n + m), n and m and length of s and t respectively
         """
@@ -26,5 +26,5 @@ class Solution:
 sol = Solution()
 
 # Test cases
-print(sol.isAnagram("listen", "silent"))  # True
-print(sol.isAnagram("hello", "bello"))  # False
+print(sol.is_anagram("listen", "silent"))  # True
+print(sol.is_anagram("hello", "bello"))  # False

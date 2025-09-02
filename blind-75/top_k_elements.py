@@ -47,18 +47,18 @@ class Solution2(object):
                 maxes[val - 1] = [key]
             else:
                 maxes[val - 1].append(key)
-        sol = []
+        solution = []
         for arr in maxes[::-1]:
-            if not (arr is None):
+            if arr is not None:
                 length = len(arr)
                 if k == length:
-                    sol.extend(arr)
+                    solution.extend(arr)
                     break
                 elif k < length:
-                    sol.extend(arr[:k])
+                    solution.extend(arr[:k])
                     break
                 else:
-                    sol.extend(arr)
+                    solution.extend(arr)
                     k -= length
         return sol
 

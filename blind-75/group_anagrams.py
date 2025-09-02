@@ -1,7 +1,7 @@
 from typing import List
 
 
-# class Solution:
+# class Solution1:
 #     def generate_dict(self, word: str) -> dict:
 #         letters = {}
 #         for s in word:
@@ -10,7 +10,7 @@ from typing import List
 #             else:
 #                 letters[s] = 1
 #         return letters
-    
+
 #     def group_anagrams(self, strs: List[str]) -> List[List[str]]:
 #         """
 #         Works but very inefficient
@@ -27,7 +27,7 @@ from typing import List
 #                 anagrams.append([s])
 #         return anagrams
 
-class Solution:
+class Solution2:
     def group_anagrams(self, strs: List[str]) -> List[List[str]]:
         """
         Time Complexity: O(n * klogk)
@@ -47,5 +47,23 @@ class Solution:
         return anagrams
 
 
-sol = Solution()
+# class Solution3:
+#     def group_anagrams(self, strs):
+#         """
+#         Time Complexity: O(n * m) 
+#         should be fastest but leetcode says this is slower than sol2?
+#         """
+#         anagrams = {}
+#         for s in strs:
+#             letters = [0] * 26
+#             for char in s:
+#                 letters[ord(char) - ord("a")] += 1
+#             if tuple(letters) in anagrams:
+#                 anagrams[tuple(letters)].append(s)
+#             else:
+#                 anagrams[tuple(letters)] = [s]
+#         return list(anagrams.values())
+
+
+sol = Solution2()
 print(sol.group_anagrams(["cat", "bat", "tab"]))

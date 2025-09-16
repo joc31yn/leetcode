@@ -1,4 +1,9 @@
 # class Solution(object):
+#     """
+#     Using .append instead of predefining res = [1] * length is reason
+#     for slow time on LeetCode (I think)
+#     """
+
 #     def productExceptSelf(self, nums):
 #         """
 #         :type nums: List[int]

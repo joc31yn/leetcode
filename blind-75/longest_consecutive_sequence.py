@@ -7,9 +7,9 @@ class Solution(object):
         """
         nums_seen = set(nums)
         start_nums = set()
-        for i in range(len(nums)):
-            if nums[i] - 1 not in nums_seen and nums[i] not in start_nums:
-                start_nums.add(nums[i])
+        for n in nums:
+            if n - 1 not in nums_seen and n not in start_nums:
+                start_nums.add(n)
         if len(start_nums) == 0:
             return 0
 

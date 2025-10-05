@@ -3,6 +3,7 @@ class Solution(object):
         """
         :type s: str
         :rtype: bool
+        Time Complexity: O(n)
         """
         start = 0
         end = len(s) - 1

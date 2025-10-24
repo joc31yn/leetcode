@@ -12,10 +12,7 @@ class Solution(object):
         while l < r:
             mid = (l + r) // 2
             if nums[mid] > nums[r]:
-                l = mid
-            # could just be else because not possible for both conditions to be true
-            elif nums[mid] < nums[l]:
+                l = mid + 1
+            else:
                 r = mid
-            if r - l == 1:
-                return nums[r]
         return nums[l]

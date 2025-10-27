@@ -10,6 +10,7 @@ class Solution(object):
         """
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
+        Time Complexity: O(n)
         """
         prev = None
         curr = head

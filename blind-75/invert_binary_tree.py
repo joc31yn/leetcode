@@ -24,6 +24,7 @@ class TreeNode:
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         """
+        Time Complexity: O(n)
         Better space complexity as editing given binary tree rather then
         creating new one
         """

@@ -12,7 +12,10 @@ class Solution:
             return False
         if root.val == node.val:
             return True
-        return self.isDescendant(root.left, node) or self.isDescendant(root.right, node)
+        return (
+            self.isDescendant(root.left, node)
+            or self.isDescendant(root.right, node)
+        )
 
     def lowestCommonAncestor(
         self, root: "TreeNode", p: "TreeNode", q: "TreeNode"

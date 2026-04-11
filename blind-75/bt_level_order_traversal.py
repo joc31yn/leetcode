@@ -11,6 +11,9 @@ class TreeNode:
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        """
+        Time Complexity: O(n) where n is number of nodes in bt
+        """
         if not root:
             return []
         levels = {}

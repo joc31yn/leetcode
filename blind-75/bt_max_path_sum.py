@@ -26,3 +26,22 @@ class Solution:
             return root.val
         calcMaxes(root)
         return max_val
+
+# def maxPathSum(self, root: Optional[TreeNode]) -> int:
+#         """
+#         This example shows sol where the original tree is not edited (better practice)
+#         Time Complexity: O(n)
+#         """
+#         max_val = -10000
+
+#         def calcMaxes(root: Optional[TreeNode]) -> int:
+#             nonlocal max_val
+#             if not root:
+#                 return 0
+#             max_left = max(calcMaxes(root.left), 0)
+#             max_right = max(calcMaxes(root.right), 0)
+#             max_val = max(max_val, root.val + max_left + max_right)
+#             return root.val + max(max_left, max_right)
+
+#         calcMaxes(root)
+#         return max_val

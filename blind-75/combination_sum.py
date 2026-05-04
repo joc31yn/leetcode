@@ -11,8 +11,10 @@ class Solution:
                 return
             if i >= len(candidates) or cur_sum > target:
                 return
+            # include candidates[i]
             cur_vals.append(candidates[i])
             backtrack(i, cur_vals, cur_sum + candidates[i])
+            # skip candidates[i]
             cur_vals.pop()
             backtrack(i + 1, cur_vals, cur_sum)
 

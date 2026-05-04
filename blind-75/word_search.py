@@ -27,10 +27,9 @@ class Solution:
                     and board[r][c] == word[i]
                 ):
                     found = dfs(i + 1, word, board, r, c)
+                    visited[r][c] = False  # unmark for failed visited paths
                     if found:
                         return True
-                    else:
-                        visited[r][c] = False
             return False
 
         for i, row in enumerate(board):

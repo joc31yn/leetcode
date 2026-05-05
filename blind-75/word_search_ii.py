@@ -15,16 +15,16 @@ class Solution:
         each subsequent only has 3 possible branchings since cannot go back to prev
         s: time complexity to build trie
         """
-        root = TrieNode()
+        trie_root = TrieNode()
         for i, w in enumerate(words):
-            self.insertWord(root, w, i)
+            self.insertWord(trie_root, w, i)
         sol = []
         visited = [[False] * len(board[0]) for _ in range(len(board))]
 
         def dfs(board: List[List[int]], r: int, c: int, root: TrieNode):
             if root.word_end and root.index >= 0:
                 sol.append(words[root.index])
-                root.index = -1  # ensure no duplicates
+                self.removeWord(trie_root, words[root.index], 0)
             visited[r][c] = True
             neighbours = [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)]
             for row, col in neighbours:
@@ -38,8 +38,8 @@ class Solution:
 
         for i, row in enumerate(board):
             for j, c in enumerate(row):
-                if c in root.children:
-                    dfs(board, i, j, root.children[c])
+                if c in trie_root.children:
+                    dfs(board, i, j, trie_root.children[c])
                     visited = [[False] * len(board[0]) for _ in range(len(board))]
         return sol
 
@@ -62,3 +62,18 @@ class Solution:
             curr = curr.children[w]
         curr.word_end = True
         curr.index = i
+
+    def removeWord(self, root: TrieNode, word: str, i: int):
+        """
+        Time Complexity: O(s) where s is length of word
+
+        This fcn allows pruning words from trie so more efficient search
+        """
+        if i == len(word):
+            root.word_end = False
+            return not root.children
+        if self.removeWord(root.children[word[i]], word, i + 1):
+            root.children.pop(word[i])
+        if not root.children and not root.word_end:
+            return True
+        return False

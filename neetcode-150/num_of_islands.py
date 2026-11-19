@@ -6,7 +6,7 @@ class Solution:
         count = 0
         visited = [[False] * len(grid[0]) for _ in range(len(grid))]
 
-        def bfs(r: int, c: int):
+        def dfs(r: int, c: int):
             neighbours = [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)]
             visited[r][c] = True
             for row, col in neighbours:
@@ -15,12 +15,12 @@ class Solution:
                     and not visited[row][col]
                     and grid[row][col] == "1"
                 ):
-                    bfs(row, col)
+                    dfs(row, col)
 
         for i, row in enumerate(grid):
             for j, c in enumerate(row):
                 if not visited[i][j] and grid[i][j] == "1":
-                    bfs(i, j)
+                    dfs(i, j)
                     count += 1
         return count
 

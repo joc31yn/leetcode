@@ -34,3 +34,33 @@ class Solution:
             return sol
 
         return kthLeftSmallest(root)
+
+
+    def kthLeftSmallest2(slef, root: Optional[TreeNode], k: int) -> int:
+        """
+        Inorder traversal solution - much simpler
+        Time complexity: O(h + k)
+         - O(h) to reach the most left node + O(k) to visit first k smallest nodes
+        Space: O(h)
+        """
+        count = k
+        sol = None
+        def inorder(root):
+            nonlocal count, sol
+            if not root or sol is not None:
+                return
+            
+            inorder(root.left)
+
+            if sol is not None:
+                return
+            
+            count -= 1
+            if count == 0:
+                sol = root.val
+                return
+            inorder(root.right)
+        
+        inorder(root)
+    
+        return sol

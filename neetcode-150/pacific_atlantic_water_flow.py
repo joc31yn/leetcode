@@ -28,6 +28,11 @@ class Solution:
                     atlantic_cells.add(cell)
                     dfs(i, j, heights, atlantic_cells)
 
+        # # better final sol
+        # for r, c in pacific_cells:
+        #     if (r, c) in atlantic_cells:
+        #         sol.append([r, c])
+
         for i in range(len(heights)):
             for j in range(len(heights[0])):
                 if (i, j) in pacific_cells and (i, j) in atlantic_cells:
